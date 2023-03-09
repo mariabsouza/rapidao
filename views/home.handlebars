@@ -1,0 +1,107 @@
+<section class="form" id="search-form">
+
+<h1>Bem vindo ao Rapidão!</h1>
+<p>Busque pelo tutorial desejado usando as caixas de seleção abaixo:</p>
+
+<form action='/getTutorial' method='get'>
+
+  <div class='form-control'>
+
+    <label for='pilar'>Pilar:</label>
+
+    <div class="select">    <select name='pilar' id='pilar' required>
+      <option value=''>Selecione o pilar</option>
+      {{#each data}}
+        <option value='{{this.DISTINCT}}'>{{this.DISTINCT}}</option>
+      {{/each}}
+
+    </select></div>
+
+
+  </div>
+
+  <div class='form-control'>
+
+    <label for='request'>Solicitação:</label>
+
+<div class="select">    <select name='request' id='request' required>
+      <option value=''>Selecione a solicitação</option>
+    </select></div>
+
+
+  </div>
+
+  <div class='form-control'>
+
+    <label for='systems'>Sistema:</label>
+
+    <div class='select'>
+      <select name='systems' id='systems' required>
+        <option value=''>Selecione o sistema</option>
+      </select>
+    </div>
+
+  </div>
+
+  <input type='submit' value='Ver resultado' class="button" />
+</form>
+</section>
+
+
+<script>
+
+  function _(element)
+{
+    return document.getElementById(element);
+}
+
+function fetch_data(parent_element, child_element, type)
+{
+  
+        
+
+    let url = '/get_data?type='+type+'&parent_value='+parent_element.value+''+'&request_value='+_('request').value+'&pilar_value='+_('pilar').value
+
+    console.log(url)
+
+    fetch(url).then(function(response){
+        return response.json();
+    }).then(function(responseData){
+
+        var html = '';
+
+        if(type == 'load_request')
+        {
+            html = '<option value="">Selecione a solicitação</option>';
+        }
+
+        if(type == 'load_systems')
+        {
+            html = '<option value="">Selecione o sistema</option>';
+        }
+
+        for(var count = 0; count < responseData.length; count++)
+        {
+            html += '<option value="'+responseData[count]+'">'+responseData[count]+'</option>';
+            
+        }
+
+      
+        child_element.innerHTML = html;
+    });
+}
+
+
+_('pilar').onchange = function(){
+    
+    fetch_data(_('pilar'), _('request'), 'load_request');
+    
+};
+
+_('request').onchange = function(){
+    
+    fetch_data(_('request'), _('systems'), 'load_systems');
+    
+};
+
+</script>

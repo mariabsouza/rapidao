@@ -1,0 +1,106 @@
+<form
+  action='/edit/{{data.id}}'
+  method='post'
+  id='tutorial-form'
+  class='form'
+>
+  <h1>{{data.pilar}} - {{data.request}} - {{data.systems}}</h1>
+
+  <section id='section-one'>
+
+    <div class='form-control'>
+      <label for='pilar'>Pilar</label>
+      <input
+        type='text'
+        name='pilar'
+        id='pilar'
+        placeholder='Pilar'
+        value='{{data.pilar}}'
+      />
+    </div>
+
+    <div class='form-control'>
+      <label for='request'>Solicitação</label>
+      <input
+        type='text'
+        name='request'
+        id='request'
+        placeholder='Solicitação'
+        value='{{data.request}}'
+      />
+    </div>
+
+    <div class='form-control'>
+      <label for='systems'>Sistema</label>
+      <input
+        type='text'
+        name='systems'
+        id='systems'
+        placeholder='Sistema'
+        value='{{data.systems}}'
+      />
+    </div>
+
+  </section>
+
+  <div class='form-control'>
+    <label for='steps'>Passo-a-passo</label>
+    <textarea
+      name='steps'
+      id='steps'
+      cols='30'
+      rows='10'
+      placeholder='Passo-a-passo'
+    >{{data.steps}}</textarea>
+  </div>
+
+  <section>
+
+    <div class='form-control'>
+      <label for='script'>Script</label>
+      <input
+        type='text'
+        name='script'
+        id='script'
+        placeholder='Script'
+        value='{{data.script}}'
+      />
+    </div>
+
+    <div class='form-control'>
+      <label for='customer_manual'>Manual do Cliente</label>
+      <input
+        type='text'
+        name='customer_manual'
+        id='customer_manual'
+        placeholder='Manual do cliente'
+        value='{{data.customer_manual}}'
+      />
+    </div>
+
+    <div class='form-control'>
+      <label for='internal_manual'>Manual interno</label>
+      <input
+        type='text'
+        name='internal_manual'
+        id='internal_manual'
+        placeholder='Manual interno'
+        value='{{data.internal_manual}}'
+      />
+    </div>
+
+    <div class='form-control'>
+      <label for='video'>Vídeo - Uso interno</label>
+      <input
+        type='text'
+        name='video'
+        id='video'
+        placeholder='Video - Uso Interno'
+        value='{{data.video}}'
+      />
+    </div>
+  </section>
+
+  <input type='submit' value='Salvar' class='button' />
+
+</form>

@@ -1,0 +1,63 @@
+<h1>{{data.pilar}} - {{data.request}} - {{data.systems}}</h1>
+
+<div class='info'>
+  <h2>Passo a passo</h2>
+  {{{data.steps}}}
+</div>
+
+<div class='info'>{{#if data.script}}
+    <h2>Script</h2>
+
+    <p>
+      <a href='{{data.script}}' target="_blank">Clique aqui para acessar o script no Google
+        Drive</a>
+    </p>
+
+  {{/if}}</div>
+
+<div class='info'>{{#if data.customer_manual}}
+
+    <h2>Manual do cliente</h2>
+
+    <p>
+      <a href='{{data.customer_manual}}' target="_blank">Clique aqui para acessar o Manual do
+        cliente no Google Drive</a>
+    </p>
+
+  {{/if}}
+</div>
+
+<div class='info'>{{#if data.internal_manual}}
+
+    <h2>Manual interno</h2>
+
+    <p>
+      <a href='{{data.internal_manual}}' target="_blank">Clique aqui para acessar o Manual
+        interno no Google Drive</a>
+    </p>
+
+  {{/if}}
+
+</div>
+
+<div class='info'>{{#if data.video}}
+    <h2>Video - Uso interno </h2>
+
+    <p>
+      <a href='{{data.video}}' target="_blank">Clique aqui para acessar o video de uso interno
+        no Google Drive</a>
+    </p>
+
+  {{/if}}
+</div>
+
+{{#if session.userId}}
+
+
+
+    <form action="/delete/{{data.id}}" method="post" id="actions">
+      <a href="/edit/{{data.id}}" class="button">Editar</a>
+      <input type="submit" value="Deletar" class="button">
+    </form>
+
+{{/if}}
