@@ -1,6 +1,9 @@
 <section class="form" id="search-form">
 
-<h1>Bem vindo ao Rapidão!</h1>
+
+{{#if session.userId}}
+
+<h1>Bem vindo ao Rapidão, {{session.name}}</h1>
 <p>Busque pelo tutorial desejado usando as caixas de seleção abaixo:</p>
 
 <form action='/getTutorial' method='get'>
@@ -45,6 +48,14 @@
 
   <input type='submit' value='Ver resultado' class="button" />
 </form>
+
+
+{{else}}
+<h1>Bem vindo ao Rapidão!</h1>
+<p>Você precisa estar logado para visualizar as informações</p>
+<img src="/img/login.svg" alt="">
+{{/if}}
+
 </section>
 
 

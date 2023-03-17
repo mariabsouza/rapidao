@@ -160,7 +160,7 @@ a.button, #actions .button{
   text-decoration: none;
 }
 
-.form-control input, textarea {
+input, textarea {
   padding: 0.5rem;
   border-radius: 10px;
   border: 1.5px #06233f solid;
@@ -217,3 +217,81 @@ form section {
   width: 30%;
 }
 
+#nonAuthorized img {
+  text-align: center;
+  margin: auto;
+}
+
+#nonAuthorized #image {
+  width: 40%;
+  margin: auto;
+}
+
+#nonAuthorized {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#nonAuthorized .container {
+  margin: auto;
+}
+
+#nonAuthorized .button {
+  width: fit-content;
+
+}
+
+#nonAuthorized p {
+  text-align: center;
+}
+
+#codeForm .button {
+  padding: 0.5rem;
+  background-color: #092c50;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#dashboard {
+  display: flex;
+}
+
+#flex-container{
+  margin: auto;
+}
+
+#codeForm {
+  margin-bottom: 2rem;
+}
+
+#flex-container h1 {
+  margin-bottom: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid rgb(154, 154, 154);
+}
+
+
+  td {
+  border-bottom: 1px solid rgb(154, 154, 154);
+
+}
+
+ td {
+  padding: 0.3rem 2rem;
+}
+
+tr form input {
+  cursor: pointer;
+}
+
+th {
+  padding: 0.5rem;
+  color: white;
+  background-color: #222;
+
+}

@@ -14,6 +14,10 @@ const User = db.define('User', {
   password: {
     type: DataTypes.STRING,
     required: true
+  },
+  profile: {
+    type: DataTypes.STRING
+    // required: true
   }
 })
 

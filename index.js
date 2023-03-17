@@ -12,10 +12,12 @@ const conn = require('./db/conn')
 
 //Models
 const Tutorial = require('./models/Tutorial')
+const Code = require('./models/Code')
 
 //ImportRoutes
 const trainingRoutes = require('./routes/trainingRoutes')
 const authRoutes = require('./routes/authRoutes')
+const usersRoutes = require('./routes/userRoutes')
 
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
@@ -67,7 +69,8 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/', trainingRoutes)
-app.use('/user', authRoutes)
+app.use('/auth', authRoutes)
+app.use('/users', usersRoutes)
 
 conn.sync().then(() => {
   //heroku

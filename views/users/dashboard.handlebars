@@ -1,0 +1,56 @@
+
+<section id="dashboard">
+  <div id="flex-container">
+
+<h1>Gestão de usuários</h1>
+
+<form action="/users/enableCode" method="post" id="codeForm">
+<input  type="text" id="result" name="result" required onkeypress="return false;" >
+<a id="generateButton" class="button">Gerar código</a>
+  <input type="submit" value="Habilitar código" class="button">
+</form>
+
+
+{{!-- <h2>Usuários ativos</h2> --}}
+
+
+<table>
+
+<tr>
+  <th>Nome</th>
+  <th>Email</th>
+  <th>Ações</th>
+</tr>
+{{#each users}}
+<tr>
+  <td>{{this.name}}</td>
+  <td>{{this.email}}</td>
+  <td><form action="/users/delete/{{this.id}}" method="post" >
+<input type="submit" value="Deletar"></form></td>
+</tr>
+{{/each}}
+</table>
+  </div>
+
+</section>
+
+
+
+
+<script>
+
+const generateButton = document.getElementById('generateButton')
+const resultHtml = document.getElementById('result')
+
+generateButton.addEventListener('click', function () {
+  fetch('/users/code') 
+    .then(response => response.json()) //2
+    .then(result => {
+      const code = result
+      resultHtml.value = code
+    })
+})
+
+
+
+</script>

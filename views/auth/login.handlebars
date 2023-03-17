@@ -1,5 +1,5 @@
 
-<form action='/user/login' method='post' class="form" id="login-form">
+<form action='/auth/login' method='post' class="form" id="login-form">
 
 <h1>Login</h1>
   <div class='form-control'>
@@ -8,6 +8,7 @@
       type='email'
       name='email'
       placeholder='E-mail'
+      required
     /></div>
 
 
@@ -17,6 +18,7 @@
       type='password'
       name='password'
       placeholder='Senha'
+      required
     /></div>
 
   <input type='submit' value='Entrar' class="button" />

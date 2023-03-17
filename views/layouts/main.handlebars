@@ -23,14 +23,20 @@
         </a>
 
         <ul>
-          {{#if session.userId}}
+          {{#if session.admin}}
+          <li><a href='/users/dashboard'>Dashboard</a></li>
             <li><a href='/create'>Criar novo tutorial</a></li>
             {{!-- <li><a href='/dashboard'>Dashboard</a></li> --}}
-            <li><a href='/user/logout'>Logout</a></li>
+            <li><a href='/auth/logout'>Logout</a></li>
 
+          {{else if session.user}}
+            <li>
+              <li><a href='/auth/logout'>Logout</a></li>
+            </li>
           {{else}}
             <li>
-              <a href='/user/login'>Login</a>
+              <a href='/auth/login'>Login |</a>
+              <a href='/auth/register'>Cadastrar</a>
             </li>
           {{/if}}
 

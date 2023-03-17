@@ -1,9 +1,11 @@
 const { raw } = require('express')
 const Tutorial = require('../models/Tutorial')
+const Code = require('../models/Code')
 const { all } = require('../routes/trainingRoutes')
 const Sequelize = require('sequelize')
 var multer = require('multer')
 const { where } = require('sequelize')
+const User = require('../models/User')
 
 module.exports = class TrainingController {
   static async home(req, res) {
@@ -121,13 +123,6 @@ module.exports = class TrainingController {
 
   }
 
-  static async dashboard(req, res){
-
-    const data = await Tutorial.findAll({raw: true})
-
-    res.render('dashboard', {data})
-  }
-
   static async edit(req, res) {
 
     const id = req.params.id
@@ -167,4 +162,51 @@ module.exports = class TrainingController {
 
     res.redirect('/')
   }
+
+  static async nonAuthorized(req, res) {
+    res.render('error/nonAuthorized')
+  }
+
+  // static async generateCode(req, res) {
+  //   let result = '';
+  //   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  //   const charactersLength = characters.length;
+  //   let counter = 0;
+  //   while (counter < 8) {
+  //     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  //     counter += 1;
+  //   }
+
+  //   return res.json(result)
+
+
+  // }
+
+  // static async users (req, res) {
+
+  //   let users = await User.findAll({
+  //     raw: true, 
+  //     where: {profile: 'user'}
+  //   })
+
+  //   res.render('usersDashboard', {users})
+  // }
+
+
+
+  // static async enableCode(req, res){
+  //   const code = {
+  //     code: req.body.result,
+  //     used: false
+  //   }
+  //   try {
+  //     await Code.create(code)
+  
+  //     res.redirect('/users')
+        
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  // }
+
 }

@@ -5,7 +5,6 @@ const sequelize = new Sequelize(process.env.database, process.env.user, process.
   dialect: 'mysql'
 })
 
-
 try {
   sequelize.authenticate()
   console.log('Conectamos com sucesso')

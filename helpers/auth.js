@@ -3,8 +3,19 @@ module.exports.checkAuth = function(req, res, next) {
   const userId = req.session.userId
 
   if(!userId) {
-    res.redirect('/user/login')
+    res.redirect('auth/login')
   }
+
+  next()
+}
+
+module.exports.checkAdmin = function(req, res, next) {
+  const profile = req.session.profile
+
+  if(profile != "admin") {
+    res.redirect('error/nonAuthorized')
+  }
+
 
   next()
 }
