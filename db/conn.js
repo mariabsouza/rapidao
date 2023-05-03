@@ -11,7 +11,7 @@ const {Sequelize} = require('sequelize')
 //   }
 // })
 
-const sequelize = new Sequelize('rapidao', '6yg79tjoepgf1oe0ocs3', 'pscale_pw_wgSz3QQR9rZ5MXhnoSF85MBqMIt3iaiUFz4i5hk5uxK', {
+const sequelize = new Sequelize('rapidao', 'on4ztacl14pv3bwdtj3o', 'pscale_pw_wY67DKXRZP77hm9OLWi1QWA5fAXbuQ4dC35lBQ577fD', {
   host: 'aws.connect.psdb.cloud',
   dialect: 'mysql',
   dialectOptions: {
