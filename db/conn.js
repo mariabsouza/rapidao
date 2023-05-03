@@ -10,10 +10,10 @@ const sequelize = new Sequelize('rapidao', '6yg79tjoepgf1oe0ocs3', 'pscale_pw_wg
   },
 })
 
-// const sequelize = new Sequelize(process.env.database, process.env.user, process.env.password, {
-//   host: process.env.host,
-//   dialect: 'mysql'
-// })
+const sequelize = new Sequelize(process.env.database, process.env.user, process.env.password, {
+  host: process.env.host,
+  dialect: 'mysql'
+})
 
 try {
   sequelize.authenticate()
