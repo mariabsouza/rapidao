@@ -99,11 +99,11 @@ module.exports = class AuthController {
   static async registerAdmin(req, res){
 
     const salt = bcrypt.genSaltSync(10)
-    const hashedPassword = bcrypt.hashSync('', salt)
+    const hashedPassword = bcrypt.hashSync('Lari110516@', salt)
     
     const admin = {
-      name: '',
-      email: '',
+      name: 'Solange',
+      email: 'solange.debritosouza@ironmountain.com',
       profile: 'admin',
       password: hashedPassword
     }
